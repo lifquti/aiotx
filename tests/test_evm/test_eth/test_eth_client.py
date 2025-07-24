@@ -101,7 +101,6 @@ async def test_get_transaction(eth_client: AioTxETHClient, tx_id, expected_excep
         ("0x2f88aa536f9ef65087ce0e81918febf65396cf4a8ff5d535d58a45de4a13d076", "0x1"),
         ("0xcb5ad4fd610b6e9e687b5154f4832c0233a527719dcfad6d47500c9f3a50f7cc", "0x1"),
         ("0x93ff17f18511c4fa74166a2dbd53ffa7ce5cc2ee431cbb4fd5e02bbdf2701b72", "0x1"),
-
         # unsuccessful (status = "0x0")
         ("0x0a0acec15770644e0e1da38c1b8f17c29bd7aa5fbf4a5c6af853952469d21288", "0x0"),
         ("0x49e6fb4e61974d1fad5a5f3a89a9fa380a7c4749eb6150ba23c5a746fc116e76", "0x0"),
@@ -116,13 +115,24 @@ async def test_get_transaction_receipt(eth_client: AioTxETHClient, tx_id, status
 @pytest.mark.parametrize(
     ("invalid_tx_id", "expected_exception"),
     [
-        ("0x0000000000000000000000000000000000000000000000000000000000000000", TransactionNotFound),
-        ("0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef", TransactionNotFound),
-        ("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", TransactionNotFound)
+        (
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            TransactionNotFound,
+        ),
+        (
+            "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+            TransactionNotFound,
+        ),
+        (
+            "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            TransactionNotFound,
+        ),
     ],
 )
 @vcr_c.use_cassette("eth/test_get_transaction_receipt_not_found.yaml")
-async def test_get_transaction_receipt_not_found(eth_client: AioTxETHClient, invalid_tx_id, expected_exception):
+async def test_get_transaction_receipt_not_found(
+    eth_client: AioTxETHClient, invalid_tx_id, expected_exception
+):
     with pytest.raises(expected_exception):
         await eth_client.get_transaction(invalid_tx_id)
 
