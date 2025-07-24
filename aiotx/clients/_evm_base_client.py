@@ -184,6 +184,13 @@ class AioTxEVMBaseClient(AioTxClient):
         tx_data["aiotx_decoded_input"] = self.decode_transaction_input(tx_data["input"])
         return tx_data
 
+    async def get_transaction_receipt(self, hash) -> dict:
+        payload = {"method": "eth_getTransactionReceipt", "params": [hash]}
+        tx_data = await self._make_rpc_call(payload)
+        if tx_data is None:
+            raise TransactionNotFound(f"Transaction {hash} not found!")
+        return tx_data
+
     async def get_chain_id(self) -> int:
         payload = {"method": "eth_chainId", "params": []}
         tx_count = await self._make_rpc_call(payload)
