@@ -329,7 +329,9 @@ class AioTxTRONClient(AioTxEVMBaseClient):
         data = {"address": address, "visible": False}
         return await self._make_api_call(payload=data, method="POST", path=path)
 
-    async def trigger_constant_contract(self, from_address, contract_address, to_address, amount) -> dict:
+    async def trigger_constant_contract(
+        self, from_address, contract_address, to_address, amount
+    ) -> dict:
         from eth_abi import encode
 
         client = Tron()
