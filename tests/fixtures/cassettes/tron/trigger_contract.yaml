@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: '{"owner_address": "419ed04a2e2382789345340504560cafe2cd012fc9", "contract_address":
+      "4142a1e39aefa49290f2b3f9ed688d7cecf86cd6e0", "function_selector": "transfer(address,uint256)",
+      "parameter": "000000000000000000000000e81ed73a89d295a5dcea0fcd365a4c6e27072a060000000000000000000000000000000000000000000000000000000000002ee0",
+      "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/triggerconstantcontract
+  response:
+    body:
+      string: '{"result":{"result":true,"message":"524556455254206f70636f6465206578656375746564"},"energy_used":821,"constant_result":["08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001e536166654d6174683a207375627472616374696f6e206f766572666c6f770000"],"transaction":{"ret":[{"ret":"FAILED"}],"visible":false,"txID":"161ff639c7841ed55a5f508d0f799b8db86bce2310530c1f8a563b99ad518888","raw_data":{"contract":[{"parameter":{"value":{"data":"a9059cbb000000000000000000000000e81ed73a89d295a5dcea0fcd365a4c6e27072a060000000000000000000000000000000000000000000000000000000000002ee0","owner_address":"419ed04a2e2382789345340504560cafe2cd012fc9","contract_address":"4142a1e39aefa49290f2b3f9ed688d7cecf86cd6e0"},"type_url":"type.googleapis.com/protocol.TriggerSmartContract"},"type":"TriggerSmartContract"}],"ref_block_bytes":"8033","ref_block_hash":"5a4fdb26f7ede46a","expiration":1759233381000,"timestamp":1759233321609},"raw_data_hex":"0a02803322085a4fdb26f7ede46a4088a5ecd399335aae01081f12a9010a31747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e54726967676572536d617274436f6e747261637412740a15419ed04a2e2382789345340504560cafe2cd012fc912154142a1e39aefa49290f2b3f9ed688d7cecf86cd6e02244a9059cbb000000000000000000000000e81ed73a89d295a5dcea0fcd365a4c6e27072a060000000000000000000000000000000000000000000000000000000000002ee07089d5e8d39933"}}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:55:21 GMT
+      Server:
+      - openresty
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"owner_address": "41a7daea6878a518695d7ffdea39aec1a08fbb6c3d", "contract_address":
+      "4142a1e39aefa49290f2b3f9ed688d7cecf86cd6e0", "function_selector": "transfer(address,uint256)",
+      "parameter": "000000000000000000000000e81ed73a89d295a5dcea0fcd365a4c6e27072a060000000000000000000000000000000000000000000000000000000000002ee0",
+      "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/triggerconstantcontract
+  response:
+    body:
+      string: '{"result":{"result":true},"energy_used":13045,"constant_result":["0000000000000000000000000000000000000000000000000000000000000001"],"logs":[{"address":"42a1e39aefa49290f2b3f9ed688d7cecf86cd6e0","data":"0000000000000000000000000000000000000000000000000000000000002ee0","topics":["ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","000000000000000000000000a7daea6878a518695d7ffdea39aec1a08fbb6c3d","000000000000000000000000e81ed73a89d295a5dcea0fcd365a4c6e27072a06"]}],"transaction":{"ret":[{}],"visible":false,"txID":"cb4e0906a41d48311d64eccafc50e750f0b34dbad2bcde45c8474a2f857675c1","raw_data":{"contract":[{"parameter":{"value":{"data":"a9059cbb000000000000000000000000e81ed73a89d295a5dcea0fcd365a4c6e27072a060000000000000000000000000000000000000000000000000000000000002ee0","owner_address":"41a7daea6878a518695d7ffdea39aec1a08fbb6c3d","contract_address":"4142a1e39aefa49290f2b3f9ed688d7cecf86cd6e0"},"type_url":"type.googleapis.com/protocol.TriggerSmartContract"},"type":"TriggerSmartContract"}],"ref_block_bytes":"8033","ref_block_hash":"5a4fdb26f7ede46a","expiration":1759233381000,"timestamp":1759233322797},"raw_data_hex":"0a02803322085a4fdb26f7ede46a4088a5ecd399335aae01081f12a9010a31747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e54726967676572536d617274436f6e747261637412740a1541a7daea6878a518695d7ffdea39aec1a08fbb6c3d12154142a1e39aefa49290f2b3f9ed688d7cecf86cd6e02244a9059cbb000000000000000000000000e81ed73a89d295a5dcea0fcd365a4c6e27072a060000000000000000000000000000000000000000000000000000000000002ee070addee8d39933"}}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:55:22 GMT
+      Server:
+      - openresty
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

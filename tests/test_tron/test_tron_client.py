@@ -341,3 +341,52 @@ async def test_send_trc20_token(
             private_key, send_to, contract, sun_amount, memo
         )
         assert tx_id == expected_tx_id
+
+
+@pytest.mark.parametrize(
+    "address, net_limit",
+    [
+        ("TZ5QJ3NEaMzbMso8hRDYsVQMmEpJqhQ2cM", 600),
+        ("TPwg1yp99H1iRZNGqE5ASvvSzvaD19Uhbh", 600),
+        ("TLipy9vXFXkbbaz4RPQqnYdFqfnTidmvFN", 600),
+        ("TCRctCvEse9Y6E6i5DaTjkaSwyKRe6QQP8", 600),
+    ],
+)
+@vcr_c.use_cassette("tron/get_account_resource.yaml")
+async def test_get_account_resource(tron_client: AioTxTRONClient, address, net_limit):
+    result = await tron_client.get_account_resource(address)
+    assert result["freeNetLimit"] == net_limit
+
+
+@pytest.mark.parametrize(
+    "from_address, contract, to_address, amount, energy_used",
+    [
+        (
+            "TQSwHbTVYYbSFqHSYTL4C8FoMnRnS9fQDZ",
+            "TG3XXyExBkPp9nzdajDZsozEu4BkaSJozs",
+            "TX8YiR4RmBsqAPGgAQATowVnbkikNWLtos",
+            12000,
+            821,
+        ),
+        (
+            "TRGk6cyqCnUaXpp92B9KXUdoNCbNKvkb3J",
+            "TG3XXyExBkPp9nzdajDZsozEu4BkaSJozs",
+            "TX8YiR4RmBsqAPGgAQATowVnbkikNWLtos",
+            12000,
+            13045,
+        ),
+    ],
+)
+@vcr_c.use_cassette("tron/trigger_contract.yaml")
+async def test_trigger_contract(
+    tron_client: AioTxTRONClient,
+    from_address,
+    contract,
+    to_address,
+    amount,
+    energy_used,
+):
+    result = await tron_client.trigger_constant_contract(
+        from_address, contract, to_address, amount
+    )
+    assert result["energy_used"] == energy_used

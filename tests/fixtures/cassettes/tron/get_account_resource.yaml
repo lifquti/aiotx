@@ -1,0 +1,290 @@
+interactions:
+- request:
+    body: '{"address": "41fd76d0c83ce08e518fc7fb4b38d963436f701fac", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetUsed": 264,"freeNetLimit": 600,"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight": 12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '167'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:16:26 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"address": "4199477b140c6266d7bd7c7f21145a44d80b21facf", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetUsed": 330,"freeNetLimit": 600,"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight": 12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '167'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:16:27 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"address": "4175f12b06daae11e5be71c1025732a02bea437d97", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetLimit": 600,"assetNetUsed": [{"key": "1001058","value": 0}],"assetNetLimit":
+        [{"key": "1001058","value": 0}],"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight": 12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '245'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:16:28 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"address": "411aef008c25dfec6e2d85cbe286d690bdd1e31dfa", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetLimit": 600,"assetNetUsed": [{"key": "1000520","value": 0},{"key":
+        "1001304","value": 0}],"assetNetLimit": [{"key": "1000520","value": 0},{"key":
+        "1001304","value": 1000000}],"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"EnergyLimit": 176989,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight":
+        12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '333'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:16:29 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"address": "41fd76d0c83ce08e518fc7fb4b38d963436f701fac", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetUsed": 261,"freeNetLimit": 600,"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight": 12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '167'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:30:34 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"address": "4199477b140c6266d7bd7c7f21145a44d80b21facf", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetUsed": 327,"freeNetLimit": 600,"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight": 12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '167'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:30:35 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"address": "4175f12b06daae11e5be71c1025732a02bea437d97", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetLimit": 600,"assetNetUsed": [{"key": "1001058","value": 0}],"assetNetLimit":
+        [{"key": "1001058","value": 0}],"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight": 12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '245'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:30:36 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"address": "411aef008c25dfec6e2d85cbe286d690bdd1e31dfa", "visible": false}'
+    headers:
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://api.shasta.trongrid.io/wallet/getaccountresource
+  response:
+    body:
+      string: '{"freeNetLimit": 600,"assetNetUsed": [{"key": "1000520","value": 0},{"key":
+        "1001304","value": 0}],"assetNetLimit": [{"key": "1000520","value": 0},{"key":
+        "1001304","value": 1000000}],"TotalNetLimit": 43200000000,"TotalNetWeight":
+        356265954283,"EnergyLimit": 176989,"TotalEnergyLimit": 180000000000,"TotalEnergyWeight":
+        12774681836}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '333'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 30 Sep 2025 11:30:37 GMT
+      Server:
+      - openresty
+    status:
+      code: 200
+      message: OK
+version: 1

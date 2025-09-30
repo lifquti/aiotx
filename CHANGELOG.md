@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [9.2.3]
+- add method for trigger contract
+- add method for check acc resources
+
+## [9.2.2]
+- update actions upload-artifact
+- add method for getting transactions receipt.
+
 ## [9.2.1]
 - fix max_retries and retry_delay params adding for tron monitoring
 
