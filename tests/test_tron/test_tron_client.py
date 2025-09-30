@@ -12,9 +12,9 @@ from aiotx.exceptions import (
 )
 
 TRON_TEST_WALLET_PRIVATE_KEY = os.environ.get("TRON_TEST_WALLET_PRIVATE_KEY")
-assert TRON_TEST_WALLET_PRIVATE_KEY is not None, (
-    "Please provide TRON_TEST_WALLET_PRIVATE_KEY"
-)
+# assert TRON_TEST_WALLET_PRIVATE_KEY is not None, (
+#     "Please provide TRON_TEST_WALLET_PRIVATE_KEY"
+# )
 CONTRACT = "TG3XXyExBkPp9nzdajDZsozEu4BkaSJozs"
 DESTINATION_ADDRESS = "TYge3Gid6vVaQvnPVRJ6SVwzC64cw2eBkN"
 
@@ -59,9 +59,7 @@ async def test_get_chain_id(tron_client: AioTxTRONClient):
     ],
 )
 @vcr_c.use_cassette("tron/get_balance.yaml")
-async def test_get_balance(
-    tron_client: AioTxTRONClient, wallet_address, expected_exception, expected_balance
-):
+async def test_get_balance(tron_client: AioTxTRONClient, wallet_address, expected_exception, expected_balance):
     if expected_exception:
         with pytest.raises(expected_exception):
             await tron_client.get_balance(wallet_address)
@@ -148,9 +146,7 @@ async def test_get_token_balance(
     ],
 )
 @vcr_c.use_cassette("tron/get_contract_decimals.yaml")
-async def test_get_contract_decimals(
-    tron_client: AioTxTRONClient, contract, expected_decimals, expected_exception
-):
+async def test_get_contract_decimals(tron_client: AioTxTRONClient, contract, expected_decimals, expected_exception):
     if expected_exception:
         with pytest.raises(expected_exception):
             await tron_client.get_contract_decimals(contract)
@@ -164,20 +160,11 @@ async def test_get_block_by_number(tron_client: AioTxTRONClient):
     block = await tron_client.get_block_by_number(44739224)
     assert isinstance(block, dict)
 
-    assert (
-        block["hash"]
-        == "0x0000000002aaaa98ab6a708d8c1ce596055a222059983895733031582fc5563e"
-    )
+    assert block["hash"] == "0x0000000002aaaa98ab6a708d8c1ce596055a222059983895733031582fc5563e"
 
     tx_hashes = [tx["hash"] for tx in block["transactions"]]
-    assert (
-        "0x98f419efccbcfef53bafac52f85b4083c1092c72b7324156a0ce4882706065e8"
-        in tx_hashes
-    )
-    assert (
-        "0x1e580e6a15956bdf39df75728ca658cc868b4a321399c95af81bf15e8dc47a13"
-        in tx_hashes
-    )
+    assert "0x98f419efccbcfef53bafac52f85b4083c1092c72b7324156a0ce4882706065e8" in tx_hashes
+    assert "0x1e580e6a15956bdf39df75728ca658cc868b4a321399c95af81bf15e8dc47a13" in tx_hashes
 
 
 @pytest.mark.parametrize(
@@ -333,11 +320,47 @@ async def test_send_trc20_token(
     sun_amount = tron_client.to_sun(amount)
     if expected_exception:
         with pytest.raises(expected_exception):
-            await tron_client.send_token(
-                private_key, send_to, contract, sun_amount, memo
-            )
+            await tron_client.send_token(private_key, send_to, contract, sun_amount, memo)
     else:
-        tx_id = await tron_client.send_token(
-            private_key, send_to, contract, sun_amount, memo
-        )
+        tx_id = await tron_client.send_token(private_key, send_to, contract, sun_amount, memo)
         assert tx_id == expected_tx_id
+
+
+@pytest.mark.parametrize(
+    "address, net_limit",
+    [
+        ("TZ5QJ3NEaMzbMso8hRDYsVQMmEpJqhQ2cM", 600),
+        ("TPwg1yp99H1iRZNGqE5ASvvSzvaD19Uhbh", 600),
+        ("TLipy9vXFXkbbaz4RPQqnYdFqfnTidmvFN", 600),
+        ("TCRctCvEse9Y6E6i5DaTjkaSwyKRe6QQP8", 600),
+    ],
+)
+@vcr_c.use_cassette("tron/get_account_resource.yaml")
+async def test_get_account_resource(tron_client: AioTxTRONClient, address, net_limit):
+    result = await tron_client.get_account_resource(address)
+    assert result["freeNetLimit"] == net_limit
+
+
+@pytest.mark.parametrize(
+    "from_address, contract, to_address, amount, energy_used",
+    [
+        (
+            "TQSwHbTVYYbSFqHSYTL4C8FoMnRnS9fQDZ",
+            "TG3XXyExBkPp9nzdajDZsozEu4BkaSJozs",
+            "TX8YiR4RmBsqAPGgAQATowVnbkikNWLtos",
+            12000,
+            821,
+        ),
+        (
+            "TRGk6cyqCnUaXpp92B9KXUdoNCbNKvkb3J",
+            "TG3XXyExBkPp9nzdajDZsozEu4BkaSJozs",
+            "TX8YiR4RmBsqAPGgAQATowVnbkikNWLtos",
+            12000,
+            13045,
+        ),
+    ],
+)
+@vcr_c.use_cassette("tron/trigger_contract.yaml")
+async def test_trigger_contract(tron_client: AioTxTRONClient, from_address, contract, to_address, amount, energy_used):
+    result = await tron_client.trigger_constant_contract(from_address, contract, to_address, amount)
+    assert result["energy_used"] == energy_used
