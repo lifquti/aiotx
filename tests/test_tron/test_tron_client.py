@@ -220,6 +220,7 @@ async def test_get_block_by_number(tron_client: AioTxTRONClient):
         (1, "test_memo", DESTINATION_ADDRESS, "d", ValueError, ""),
     ],
 )
+
 @vcr_c.use_cassette("tron/send_trx.yaml")
 async def test_send_trx(
     tron_client: AioTxTRONClient,
