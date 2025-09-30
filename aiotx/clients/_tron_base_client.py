@@ -321,6 +321,42 @@ class AioTxTRONClient(AioTxEVMBaseClient):
             address = self.base58_to_hex_address(address)
         return await super().get_balance(address, block_parameter)
 
+    async def get_account_resource(
+        self, address
+    ) -> dict:
+        client = Tron()
+        path = "/wallet/getaccountresource"
+        if client.is_base58check_address(address):
+            address = self.base58_to_hex_address(address)
+        data = {
+            'address': address,
+            'visible': True
+        }
+        return await self._make_api_call(payload=data, method="POST", path=path)
+
+
+    async def trigger_constant_contract(
+        self, from_address, contract_address, to_address, amount
+    ) -> dict:
+        client = Tron()
+        path = "/wallet/triggerconstantcontract"
+        hex_eth_like_address = self.base58_to_hex_address(to_address)
+        if not hex_eth_like_address.startswith('0x'):
+            hex_eth_like_address = "0x" + hex_eth_like_address
+
+        transfer_data = encode(["address", "uint256"], [hex_eth_like_address, amount])
+        parameter = transfer_data.hex()
+        if client.is_base58check_address(from_address):
+            from_address = self.base58_to_hex_address(from_address)
+        data = {
+            "owner_address": from_address,
+            "contract_address": contract_address,
+            "function_selector": "transfer(address,uint256)",
+            "parameter": parameter,
+            "visible": False
+        }
+        return await self._make_api_call(payload=data, method="POST", path=path)
+
     async def get_contract_balance(
         self, address, contract_address, block_parameter: BlockParam = BlockParam.LATEST
     ) -> int:
