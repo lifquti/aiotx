@@ -371,6 +371,28 @@ class AioTxTRONClient(AioTxEVMBaseClient):
             address, contract_address, block_parameter
         )
 
+    async def _get_resource_price(self, path: str) -> int:
+        """Get current price for a resource by path."""
+        prices = await self._make_api_call(payload=None, method="GET", path=path)
+
+        now_ms = int(time.time() * 1000)
+        valid_timestamps = [int(t) for t in prices.keys() if int(t) <= now_ms]
+
+        if not valid_timestamps:
+            raise ValueError("No valid prices found for current timestamp")
+
+        latest_ts = max(valid_timestamps)
+
+        return int(prices[str(latest_ts)])
+
+    async def get_energy_price(self) -> int:
+        """This method returns the current energy price based on historical data."""
+        return await self._get_resource_price("/wallet/getenergyprices")
+
+    async def get_bandwidth_price(self) -> int:
+        """This method returns the current bandwidth price based on historical data."""
+        return await self._get_resource_price("/wallet/getbandwidthprices")
+
     async def get_contract_decimals(self, address: str):
         client = Tron()
         if client.is_base58check_address(address):
